@@ -1,0 +1,42 @@
+<template>
+  <require from="./form-builder"></require>
+  <require from="./viewer"></require>
+  <div class="page-header">
+    <div class="title">
+      Cure Template Builder
+    </div>
+    <div class="actions"></div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <horizontal-nav>
+        <div slot="left">
+          <div show.bind="!firstFile">
+            <input id="viz-load-input" type="file" accept=".json" files.bind="selectedFiles" />
+          </div>
+          <div show.bind="firstFile">
+            <span class="text-muted">
+              &lt;${firstFile.name}, opened&gt;
+            </span>
+          </div>
+        </div>
+        <div slot="right">
+          <div if.bind="firstFile">
+            <button class="btn btn-sm btn-danger" click.delegate="reset()">Close</button>
+          </div>
+        </div>
+      </horizontal-nav>
+      <form-builder model.bind="model"></form-builder>
+    </div>
+    <div class="col">
+      <panel show-header.bind="true">
+        <div slot="header">
+          <div class="title">Result</div>
+        </div>
+        <div slot="body">
+          <viewer watch.bind="model"></viewer>
+        </div>
+      </panel>
+    </div>
+  </div>
+</template>

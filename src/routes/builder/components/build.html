@@ -1,0 +1,26 @@
+<template>
+  <require from="./build/candidate"></require>
+  <div class="rules-container no-margin">
+    <div class="action-header solid">
+      <h5>Candidates</h5>
+      <div class="button-group">
+        <button class="btn btn-primary btn-outline btn-sm" click.trigger="addCandidate()">
+          <i class="fas fa-plus"></i> Candidate
+        </button>
+      </div>
+    </div>
+
+    <div class="rules-block" repeat.for="candidate of build.candidates">
+      <div class="action-header solid">
+        <h5>${candidate.column || "(unknown)"}</h5>
+        <button class="btn btn-danger btn-outline btn-sm" click.trigger="remove($index)">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <candidate candidate.bind="candidate"></candidate>
+    </div>
+    <div class="alert info" if.bind="!build.candidates || build.candidates.length == 0">
+      No candidates defined.
+    </div>
+  </div>
+</template>

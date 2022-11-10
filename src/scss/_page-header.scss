@@ -1,0 +1,30 @@
+.page-header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  overflow-x: auto;
+
+  margin-bottom: 2rem;
+
+  .title {
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+
+  .actions {
+
+  }
+
+}
+
+.section-header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  overflow-x: auto;
+  border-bottom: 1px solid $gray-300;
+  
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+
+}

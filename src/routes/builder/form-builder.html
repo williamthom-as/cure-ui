@@ -1,0 +1,13 @@
+<template>
+  <require from="./components/build"></require>
+  <panel show-header.bind="true">
+    <div slot="header">
+      <div class="title">Build</div>
+    </div>
+    <div slot="body">
+      <section class="form-section">
+        <build build.two-way="model.build"></build>
+      </section>
+    </div>
+  </panel>  
+</template>

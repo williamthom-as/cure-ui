@@ -1,0 +1,12 @@
+<template>
+  <require from="./actions/add"></require>
+  <validatable-select 
+    value.bind="action.type" 
+    errors.bind="errors.type"
+    label="Type"
+    option-key="id"
+    option-value="label"
+    values.bind="typeOptions">
+  </validatable-select>
+  <add options.bind="action.options" if.bind="action.type == 'add'"></add>
+</template>
