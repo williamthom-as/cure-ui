@@ -1,5 +1,8 @@
 <template>
   <require from="./actions/add"></require>
+  <require from="./actions/remove"></require>
+  <require from="./actions/copy"></require>
+  <require from="./actions/explode"></require>
   <validatable-select 
     value.bind="action.type" 
     errors.bind="errors.type"
@@ -9,4 +12,7 @@
     values.bind="typeOptions">
   </validatable-select>
   <add options.bind="action.options" if.bind="action.type == 'add'"></add>
+  <remove options.bind="action.options" if.bind="action.type == 'remove'"></remove>
+  <copy options.bind="action.options" if.bind="action.type == 'copy'"></copy>
+  <explode options.bind="action.options" if.bind="action.type == 'explode'"></explode>
 </template>

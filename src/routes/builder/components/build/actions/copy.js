@@ -1,10 +1,9 @@
 import {bindable, bindingMode} from 'aurelia-framework';
 
-export class Add {
+export class Copy {
   @bindable({ defaultBindingMode: bindingMode.twoWay }) options;
 
   // optionsChanged() {
   //   this.options = {};
   // }
-
 }
