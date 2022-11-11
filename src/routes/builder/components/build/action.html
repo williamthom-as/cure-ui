@@ -1,16 +1,11 @@
 <template>
+  <require from="./actions/type"></require>
   <require from="./actions/add"></require>
   <require from="./actions/remove"></require>
   <require from="./actions/copy"></require>
   <require from="./actions/explode"></require>
-  <validatable-select 
-    value.bind="action.type" 
-    errors.bind="errors.type"
-    label="Type"
-    option-key="id"
-    option-value="label"
-    values.bind="typeOptions">
-  </validatable-select>
+
+  <type type.bind="action.type" if.bind="action"></type>
   <add options.bind="action.options" if.bind="action.type == 'add'"></add>
   <remove options.bind="action.options" if.bind="action.type == 'remove'"></remove>
   <copy options.bind="action.options" if.bind="action.type == 'copy'"></copy>

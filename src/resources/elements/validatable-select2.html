@@ -2,10 +2,10 @@
     <div class="form-group">
         <label class="au-animate ${errors ? 'is-invalid' : ''}">${label}</label>
         <select if.bind="optionKey" class="form-control" data-width="100%">
-            <option repeat.for="data of values" model.bind="data[optionKey]">${data[optionValue]}</option>
+            <option repeat.for="data of values" model.bind="data[optionKey]" selected.bind="isSelected(data)">${data[optionValue]}</option>
         </select>
         <select if.bind="!optionKey && multiSelect" class="form-control" name="prop[]" multiple="multiple" data-width="100%">
-            <option repeat.for="data of values" value="${data}">${data}</option>
+            <option repeat.for="data of values" value="${data}" selected.bind="isSelected(data)">${data}</option>
         </select>
         <select if.bind="!optionKey && !multiSelect" class="form-control" data-width="100%">
             <option repeat.for="data of values" value="${data}">${data}</option>

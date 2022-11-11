@@ -1,4 +1,4 @@
-import {bindable, bindingMode} from 'aurelia-framework';
+import {bindable, bindingMode, computedFrom} from 'aurelia-framework';
 
 export class Explode {
   @bindable({ defaultBindingMode: bindingMode.twoWay }) options;
@@ -13,4 +13,13 @@ export class Explode {
         { id: "whitelist", label: "Whitelist" },
       ]
   }
+
+  // @computedFrom('options', 'options.filter')
+  // get values() {
+  //   if (this.options.filter === undefined) {
+  //     return []
+  //   }
+
+  //   return this.options.filter.values
+  // }
 }

@@ -1,8 +1,7 @@
 import {bindable, bindingMode} from 'aurelia-framework';
-import {EventAggregator} from 'aurelia-event-aggregator';
 
-export class Action {
-  @bindable({ defaultBindingMode: bindingMode.twoWay }) action;
+export class Type {
+  @bindable({ defaultBindingMode: bindingMode.twoWay }) type;
 
   get typeOptions() {
     return [
@@ -13,4 +12,12 @@ export class Action {
         { id: "explode", label: "Explode" }
     ]
   }
+
+  typeChanged(o,v) {
+    console.log(o, v)
+    if (v !== null && o !== v) {
+      this.actions.options = {};
+    }
+  }
+
 }

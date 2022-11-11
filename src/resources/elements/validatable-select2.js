@@ -5,16 +5,23 @@ import $ from 'jquery';
 @inject(Element)
 export class ValidatableSelect2 {
   @bindable({ defaultBindingMode: bindingMode.twoWay }) value;
-  @bindable values;
   @bindable optionValue;
   @bindable optionKey;
   @bindable errors;
   @bindable label;
   @bindable placeholder;
-  @bindable multiSelect = true;
+  @bindable multiSelect = false;
+  @bindable values = [];
 
   constructor(element) {
       this.element = element;
+  }
+
+  bind() {
+    if (this.value && this.value instanceof Array) {
+      // this should merge values
+      this.values = this.value;
+    }
   }
 
   attached() {
@@ -31,7 +38,6 @@ export class ValidatableSelect2 {
       }
     }
 
-
     if (this.placeholder) {
       config.placeholder = this.placeholder;
     }
@@ -47,10 +53,7 @@ export class ValidatableSelect2 {
     if (this.select2) {
       try {
         this.select2.destroy();
-      } catch {
-        console.log("Cannot destroy")
-      }
-      
+      } catch {}
     }
   }
 
@@ -59,5 +62,8 @@ export class ValidatableSelect2 {
       this.select2.val(v);
     }
   }
-  
+
+  isSelected(data) {
+    return (_.includes(this.values, data))
+  }
 }

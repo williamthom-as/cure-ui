@@ -1,17 +1,19 @@
 <template>
-  <validatable-select 
+  <validatable-select
     value.bind="options.filter.type" 
     errors.bind="errors.filter.type"
     label="Type"
     option-key="id"
     option-value="label"
-    values.bind="typeOptions">
+    values.bind="typeOptions"
+  >
   </validatable-select>
   <validatable-select2
     value.bind="options.filter.values" 
     errors.bind="errors.filter.values"
     label="Columns"
     placeholder="Select (or type) the column headers you wish to add/remove"
-    values.bind="values">
+    multi-select.bind="true"
+  >
   </validatable-select2>
 </template>
