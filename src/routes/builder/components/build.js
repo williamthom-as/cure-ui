@@ -10,6 +10,7 @@ export class Build {
 
     this.build.candidates.push({
       column: "",
+      named_range: "default",
       action: {
         type: "",
         options: {}

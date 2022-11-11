@@ -1,7 +1,14 @@
-import {bindable, bindingMode} from 'aurelia-framework';
+import {inject, bindable, bindingMode} from 'aurelia-framework';
+import {EventAggregator} from 'aurelia-event-aggregator';
 
+@inject(EventAggregator)
 export class Type {
   @bindable({ defaultBindingMode: bindingMode.twoWay }) type;
+  @bindable seed;
+
+  constructor(ea) {
+    this.ea = ea;
+  };
 
   get typeOptions() {
     return [
@@ -14,9 +21,9 @@ export class Type {
   }
 
   typeChanged(o,v) {
-    console.log(o, v)
+    console.log(o, v, this.seed + "-remove")
     if (v !== null && o !== v) {
-      this.actions.options = {};
+      this.ea.publish(this.seed + "-remove", {o,v})
     }
   }
 

@@ -5,7 +5,7 @@
   <require from="./actions/copy"></require>
   <require from="./actions/explode"></require>
 
-  <type type.bind="action.type" if.bind="action"></type>
+  <type type.bind="action.type" if.bind="action" seed.bind="seed"></type>
   <add options.bind="action.options" if.bind="action.type == 'add'"></add>
   <remove options.bind="action.options" if.bind="action.type == 'remove'"></remove>
   <copy options.bind="action.options" if.bind="action.type == 'copy'"></copy>
