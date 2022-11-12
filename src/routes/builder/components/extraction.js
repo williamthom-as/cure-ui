@@ -30,7 +30,7 @@ export class Extraction {
     })
   }
 
-  removeNamedRange(idx) {
+  removeVariable(idx) {
     this.extraction.variables.splice(idx, 1);
   }
 }

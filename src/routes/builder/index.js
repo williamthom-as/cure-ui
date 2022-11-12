@@ -1,4 +1,6 @@
 import { inject, bindable, bindingMode, BindingEngine } from 'aurelia-framework';
+import {DialogService} from 'aurelia-dialog-lite';
+import {LoadFromFileModalDialog} from './dialog/load-from-file-modal-dialog';
 
 async function readFileAsDataContents(file) {
   let result = await new Promise((resolve) => {
@@ -14,14 +16,15 @@ async function readFileAsDataContents(file) {
 }
 
 
-@inject(BindingEngine, 'AppService')
+@inject(DialogService, BindingEngine, 'AppService')
 export class Index {
   @bindable({ defaultBindingMode: bindingMode.twoWay }) model = this.cleanModel;
 
   selectedFiles = [];
   @bindable firstFile = null;
 
-  constructor(bindingEngine, appService) {
+  constructor(dialogService, bindingEngine, appService) {
+    this.dialogService = dialogService;
     this.appService = appService;
     this.bindingEngine = bindingEngine;
     let subscription = this.bindingEngine
@@ -46,6 +49,23 @@ export class Index {
     });
 
   }
+
+
+  loadFromFileModal() {
+    console.log("here in fn")
+    this.dialogService.open({
+      viewModel: LoadFromFileModalDialog,
+      model: {},
+    }).then(
+      (resp) => {
+        console.log(resp);
+      },
+      (resp) => {
+        console.log("cancelled", resp);
+      }
+    )
+  }
+
 
   reset() {
     this.selectedFiles = [];

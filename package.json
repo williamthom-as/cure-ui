@@ -62,7 +62,7 @@
     "@fortawesome/fontawesome-free": "^5.12.0",
     "aurelia-animator-css": "^1.0.4",
     "aurelia-combo": "^1.1.4",
-    "aurelia-dialog": "^2.0.0",
+    "aurelia-dialog-lite": "^1.0.1",
     "aurelia-fetch-client": "^1.8.2",
     "aurelia-getter-throttle": "^1.0.5",
     "aurelia-watch-decorator": "^0.0.9",

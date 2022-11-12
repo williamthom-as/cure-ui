@@ -10,6 +10,13 @@ export function configure(aurelia) {
     aurelia.use.plugin('aurelia-testing');
   }
 
+  aurelia.use.plugin('aurelia-dialog-lite', {
+    host: document.body,
+    overlayClassName: 'dialog-lite-overlay',
+    escDismiss: true,
+    overlayDismiss: false
+  });
+
   // Service registry
   aurelia.use.singleton('AppService', AppService)
   aurelia.start().then(() => aurelia.setRoot());

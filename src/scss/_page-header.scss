@@ -2,17 +2,27 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  align-items: center;
   overflow-x: auto;
 
   margin-bottom: 2rem;
 
   .title {
     font-weight: 600;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 
   .actions {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
 
+    a {
+      color: $gray-800; 
+      cursor: pointer; 
+      font-size: 1rem;
+      text-decoration: none;
+    }
   }
 
 }
