@@ -1,0 +1,52 @@
+<template>
+  <require from="./extraction/named-range"></require>
+  <require from="./extraction/variable"></require>
+
+  <div class="rules-container no-margin">
+    <div class="action-header solid">
+      <h5>Named Range</h5>
+      <div class="button-group">
+        <button class="btn btn-primary btn-outline btn-sm" click.trigger="addNamedRange()">
+          <i class="fas fa-plus"></i> Named Range
+        </button>
+      </div>
+    </div>
+
+    <div class="rules-block" repeat.for="named_range of extraction.named_ranges">
+      <div class="action-header solid">
+        <h5>${named_range.name || "(unknown)"}</h5>
+        <button class="btn btn-danger btn-outline btn-sm" click.trigger="removeNamedRange($index)">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <named-range named-range.bind="named_range"></named-range>
+    </div>
+    <div class="alert info" if.bind="!extraction.named_ranges || extraction.named_ranges.length == 0">
+      No named ranges defined.
+    </div>
+  </div>
+
+  <div class="rules-container no-margin">
+    <div class="action-header solid">
+      <h5>Variables</h5>
+      <div class="button-group">
+        <button class="btn btn-primary btn-outline btn-sm" click.trigger="addVariable()">
+          <i class="fas fa-plus"></i> Variable
+        </button>
+      </div>
+    </div>
+
+    <div class="rules-block" repeat.for="variable of extraction.variables">
+      <div class="action-header solid">
+        <h5>${variable.name || "(unknown)"}</h5>
+        <button class="btn btn-danger btn-outline btn-sm" click.trigger="removeVariable($index)">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <variable variable.bind="variable"></variable>
+    </div>
+    <div class="alert info" if.bind="!extraction.variables ||  extraction.variables.length == 0">
+      No variables defined.
+    </div>
+  </div>
+</template>

@@ -4,5 +4,5 @@ export class Parent {
     @bindable struct;
     @bindable key;
 
-    @bindable expanded = false;
+    @bindable expanded = true;
 }

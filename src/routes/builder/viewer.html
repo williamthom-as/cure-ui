@@ -1,3 +1,26 @@
 <template>
-  <pre><code if.bind="json" innerHTML.bind="json | jsonFormatter"></code></pre>
+  <!-- <pre><code if.bind="json" innerHTML.bind="json | jsonFormatter"></code></pre> -->
+  <div class="tabs-container">
+    <menu class="tabs-menu">
+      <a class="${opened == 'object' ? 'active' : ''}" click.delegate="opened = 'object'">
+        <i class="fas fa-cube"></i> Object Viewer
+      </a>
+      <a class="${opened == 'json' ? 'active' : ''}" click.delegate="opened = 'json'">
+        <i class="fas fa-code"></i> JSON Viewer
+      </a>
+    </menu>
+  </div>
+
+
+  <div class="tabs-panel">
+    <page-section if.bind="opened == 'object'">
+      <div class="accordion" if.bind="json">
+        <parent struct.bind="json" key.bind="key"></parent>
+      </div>
+    </page-section>
+    <page-section if.bind="opened == 'json'">
+        <pre><code if.bind="json" innerHTML.bind="json | jsonFormatter"></code></pre>
+    </page-section>
+  </div>
+
 </template>

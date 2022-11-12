@@ -59,12 +59,12 @@ export class Index {
 
   get cleanModel() {
     return {
-      build: {
-        candidates: []
-      },
       extraction: {
         named_ranges: [],
         variables: []
+      },
+      build: {
+        candidates: []
       },
       transformations: {
         candidates: [],

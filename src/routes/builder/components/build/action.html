@@ -5,9 +5,13 @@
   <require from="./actions/copy"></require>
   <require from="./actions/explode"></require>
 
-  <type type.bind="action.type" if.bind="action" seed.bind="seed"></type>
-  <add options.bind="action.options" if.bind="action.type == 'add'"></add>
-  <remove options.bind="action.options" if.bind="action.type == 'remove'"></remove>
-  <copy options.bind="action.options" if.bind="action.type == 'copy'"></copy>
-  <explode options.bind="action.options" if.bind="action.type == 'explode'"></explode>
+  <div style="margin-left: 1rem;">
+    <type type.bind="action.type" if.bind="action" seed.bind="seed"></type>
+    <div style="margin-left: 1rem;">
+      <add options.bind="action.options" if.bind="action.type == 'add'"></add>
+      <remove options.bind="action.options" if.bind="action.type == 'remove'"></remove>
+      <copy options.bind="action.options" if.bind="action.type == 'copy'"></copy>
+      <explode options.bind="action.options" if.bind="action.type == 'explode'"></explode>
+    </div>  
+  </div>
 </template>

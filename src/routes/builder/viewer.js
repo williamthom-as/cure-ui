@@ -2,14 +2,15 @@ import {computedFrom, bindable} from 'aurelia-framework';
 
 export class Viewer {
   @bindable watch = null;
-  
+  opened = 'object';
+
   updateJson() {
     if (this.watch === null) {
       this.json = 'null';
     } else if (this.watch === undefined) {
       this.json = 'undefined'
     } else {
-      this.json = JSON.stringify(this.watch, null, 2);
+      this.json = this.watch //JSON.stringify(this.watch, null, 2);
     }
   }
   

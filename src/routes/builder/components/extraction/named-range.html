@@ -1,0 +1,18 @@
+<template>
+  <div class="rule-container">
+    <validatable-field 
+      placeholder="Enter a name of your choice" 
+      value.bind="namedRange.name" 
+      errors.bind="errors.name"
+      label="Name"
+      type="text">
+    </validatable-field>
+    <validatable-field 
+      placeholder="Specify section using ':' notation (ex. A1:B2)" 
+      value.bind="namedRange.section" 
+      errors.bind="errors.section"
+      label="Section"
+      type="text">
+    </validatable-field>
+  </div>
+</template>

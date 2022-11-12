@@ -3,7 +3,7 @@ pre {
   color: $white;
   padding: 1rem;
   border-radius: 3px;
-  
+
   white-space: pre-wrap;
 }
 
@@ -12,7 +12,7 @@ pre {
 }
 
 .number {
-  color: $blue
+  color: $blue;
 }
 
 .boolean {
@@ -24,7 +24,7 @@ pre {
 }
 
 .key {
-  color: $blue
+  color: $blue;
 }
 
 .key {
@@ -35,18 +35,43 @@ pre {
   }
 
   .title {
-      color: $blue;
+    color: $blue;
   }
 
   .values {
+    margin-left: 1rem;
+    .label {
+      color: $green;
+    }
+    .properties {
+      // color: var(--main-text);
+      font-weight: bold;
+    }
+  }
+}
+
+.accordion {
+  background-color: $gray-950;
+  border-radius: 3px;
+  padding: 1rem;
+
+  .key {
+    padding-left: 1rem;
+    .title {
+      font-weight: bold;
+      color: $blue;
+    }
+
+    .values {
       margin-left: 1rem;
       .label {
-          color: $green;
+        font-weight: bold;
+        color: $green;
       }
       .properties {
-          // color: var(--main-text);
-          font-weight: bold;
-
+        font-weight: normal;
+        color: var(--main-text);
       }
+    }
   }
 }
