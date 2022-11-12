@@ -1,0 +1,13 @@
+<template>
+  <!-- <require from="./action"></require> -->
+  <div class="rule-container">
+    <validatable-field 
+      placeholder="Specify named range or as default" 
+      value.bind="section.named_range" 
+      errors.bind="errors.named_range"
+      label="Named Range"
+      type="text">
+    </validatable-field>
+    <!-- <action action.bind="candidate.action"></action> -->
+  </div>
+</template>

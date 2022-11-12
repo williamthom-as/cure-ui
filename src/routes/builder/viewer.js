@@ -2,7 +2,7 @@ import {computedFrom, bindable} from 'aurelia-framework';
 
 export class Viewer {
   @bindable watch = null;
-  opened = 'object';
+  opened = 'json';
 
   updateJson() {
     if (this.watch === null) {
