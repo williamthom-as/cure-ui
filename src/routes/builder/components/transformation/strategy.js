@@ -2,8 +2,8 @@ import {inject, bindable, bindingMode} from 'aurelia-framework';
 import {EventAggregator} from 'aurelia-event-aggregator';
 
 @inject(EventAggregator)
-export class Action {
-  @bindable({ defaultBindingMode: bindingMode.twoWay }) action;
+export class Strategy {
+  @bindable({ defaultBindingMode: bindingMode.twoWay }) strategy;
 
   constructor(ea) {
     this.ea = ea;
@@ -21,19 +21,9 @@ export class Action {
     _.each(this.subscribers, s => s.dispose());
   }
 
-  get typeOptions() {
-    return [
-        { id: "", label: "Select" },
-        { id: "add", label: "Add" },
-        { id: "remove", label: "Remove" },
-        { id: "copy", label: "Copy" },
-        { id: "explode", label: "Explode" }
-    ]
-  }
-
   transformOptions(o, v) {
     if (v !== null && o !== v) {
-      this.action.options = {};
+      this.strategy.options = {};
     }
   }
 }

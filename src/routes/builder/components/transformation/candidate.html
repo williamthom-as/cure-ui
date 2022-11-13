@@ -1,0 +1,44 @@
+<template>
+  <require from="./translation"></require>
+  <div style="margin-left: 1rem;">
+    <validatable-field 
+      placeholder="Enter a field name of your choice" 
+      value.bind="candidate.column" 
+      errors.bind="errors.column"
+      label="Column"
+      type="text">
+    </validatable-field>
+    <validatable-field 
+      placeholder="Specify named range or as default" 
+      value.bind="candidate.named_range" 
+      errors.bind="errors.named_range"
+      label="Named Range"
+      type="text">
+    </validatable-field>
+    <div class="rule-container">
+      <div class="rules-container no-margin">
+        <div class="action-header solid">
+          <h5>Translations</h5>
+          <div class="button-group">
+            <button class="btn btn-primary btn-outline btn-sm" click.trigger="addTranslation()">
+              <i class="fas fa-plus"></i> Translation
+            </button>
+          </div>
+        </div>
+    
+        <div class="rules-block" repeat.for="translation of candidate.translations">
+          <div class="action-header solid">
+            <h5>${translation.strategy.name || "(unknown)"} / ${translation.generator.name || "(unknown)"}</h5>
+            <button class="btn btn-danger btn-outline btn-sm" click.trigger="remove($index)">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <translation translation.bind="translation"></translation>
+        </div>
+        <div class="alert info" if.bind="!candidate.translations || candidate.translations.length == 0">
+          No translations defined.
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

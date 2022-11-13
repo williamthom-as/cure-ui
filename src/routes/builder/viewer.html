@@ -16,8 +16,8 @@
       <pre><code if.bind="json" innerHTML.bind="json | jsonFormatter"></code></pre>
     </page-section>
     <page-section if.bind="opened == 'object'">
-      <div class="accordion" if.bind="json">
-        <parent struct.bind="json" key.bind="key"></parent>
+      <div class="accordion" if.bind="object">
+        <parent struct.bind="object" key.bind="key"></parent>
       </div>
     </page-section>
   </div>

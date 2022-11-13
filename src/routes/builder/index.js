@@ -21,6 +21,8 @@ export class Index {
   @bindable({ defaultBindingMode: bindingMode.twoWay }) model = this.cleanModel;
 
   selectedFiles = [];
+  expanded = false;
+
   @bindable firstFile = null;
 
   constructor(dialogService, bindingEngine, appService) {
@@ -44,6 +46,7 @@ export class Index {
         this.showInfo("Invalid file", "File is not valid or corrupted.");
       } else {
         this.model = model;
+        this.expanded = true;
         this.showInfo("File loaded", "File has been loaded successfully");
       }
     });

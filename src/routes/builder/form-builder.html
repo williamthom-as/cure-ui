@@ -1,8 +1,9 @@
 <template>
   <require from="./components/extraction"></require>
   <require from="./components/build"></require>
+  <require from="./components/transformations"></require>
   <require from="./components/exporter"></require>
-  <panel show-header.bind="true">
+  <panel show-header.bind="true" expanded.bind="expanded">
     <div slot="header">
       <div class="title">
         Extraction (${model.extraction.named_ranges.length} named ranges, 
@@ -15,7 +16,7 @@
       </section>
     </div>
   </panel>
-  <panel show-header.bind="true">
+  <panel show-header.bind="true" expanded.bind="expanded">
     <div slot="header">
       <div class="title">Build (${model.build.candidates.length} candidates)</div>
     </div>
@@ -25,13 +26,23 @@
       </section>
     </div>
   </panel>
-  <panel show-header.bind="true">
+  <panel show-header.bind="true" expanded.bind="expanded">
+    <div slot="header">
+      <div class="title">Transformations (${model.transformations.candidates.length} candidates)</div>
+    </div>
+    <div slot="body">
+      <section class="form-section">
+        <transformations transformations.two-way="model.transformations"></transformations>
+      </section>
+    </div>
+  </panel>
+  <panel show-header.bind="true" expanded.bind="expanded">
     <div slot="header">
       <div class="title">Exporter (${model.exporter.sections.length} sections)</div>
     </div>
     <div slot="body">
       <section class="form-section">
-        <exporter exporter.two-way="model.exporter"></build>
+        <exporter exporter.two-way="model.exporter"></exporter>
       </section>
     </div>
   </panel>

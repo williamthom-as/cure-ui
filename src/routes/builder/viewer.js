@@ -10,7 +10,8 @@ export class Viewer {
     } else if (this.watch === undefined) {
       this.json = 'undefined'
     } else {
-      this.json = this.watch //JSON.stringify(this.watch, null, 2);
+      this.object = this.watch 
+      this.json = JSON.stringify(this.watch, null, 2);
     }
   }
   

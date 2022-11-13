@@ -1,0 +1,11 @@
+<template>
+  <require from="./generator/name"></require>
+
+  <div style="margin-left: 1rem;">
+    <name name.bind="generator.name" if.bind="generator" seed.bind="seed"></name>
+    <div style="margin-left: 1rem;">
+      <!-- <csv options.bind="processor.options" if.bind="processor.type == 'csv'"></csv>
+      <terminal options.bind="processor.options" if.bind="processor.type == 'terminal'"></terminal> -->
+    </div>
+  </div>
+</template>
