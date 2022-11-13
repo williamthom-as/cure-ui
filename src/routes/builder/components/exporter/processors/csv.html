@@ -1,0 +1,17 @@
+<template>
+  <validatable-field 
+    placeholder="Directory" 
+    value.bind="options.directory" 
+    errors.bind="errors.directory"
+    label="Directory"
+    type="text">
+  </validatable-field>
+  <validatable-field 
+    placeholder="Filename" 
+    value.bind="options.file_name" 
+    errors.bind="errors.file_name"
+    label="Filename"
+    type="text">
+  </validatable-field>
+  <small class="text-muted text-italic">Your final file will be located at ${options.directory}/${options.file_name}</small>
+</template>

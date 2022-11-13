@@ -1,5 +1,5 @@
 <template>
-  <!-- <require from="./action"></require> -->
+  <require from="./processor"></require>
   <div class="rule-container">
     <validatable-field 
       placeholder="Specify named range or as default" 
@@ -8,6 +8,6 @@
       label="Named Range"
       type="text">
     </validatable-field>
-    <!-- <action action.bind="candidate.action"></action> -->
+    <processor processor.bind="section.processor"></processor>
   </div>
 </template>

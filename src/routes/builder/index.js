@@ -40,7 +40,7 @@ export class Index {
 
 
       const model = JSON.parse(dataContents);
-      if (model.extraction === undefined) {
+      if (false) {
         this.showInfo("Invalid file", "File is not valid or corrupted.");
       } else {
         this.model = model;

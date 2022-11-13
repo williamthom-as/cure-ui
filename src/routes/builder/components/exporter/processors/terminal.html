@@ -1,0 +1,16 @@
+<template>
+  <validatable-field 
+    placeholder="Output title" 
+    value.bind="options.title" 
+    errors.bind="errors.title"
+    label="Title"
+    type="text">
+  </validatable-field>
+  <validatable-field 
+    placeholder="Enter a row count if you want to limit the output, otherwise for all use -1" 
+    value.bind="options.row_count" 
+    errors.bind="errors.file_name"
+    label="Row Count"
+    type="number">
+  </validatable-field>
+</template>

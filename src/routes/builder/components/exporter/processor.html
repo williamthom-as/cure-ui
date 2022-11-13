@@ -1,0 +1,13 @@
+<template>
+  <require from="./processors/type"></require>
+  <require from="./processors/csv"></require>
+  <require from="./processors/terminal"></require>
+
+  <div style="margin-left: 1rem;">
+    <type type.bind="processor.type" if.bind="processor" seed.bind="seed"></type>
+    <div style="margin-left: 1rem;">
+      <csv options.bind="processor.options" if.bind="processor.type == 'csv'"></csv>
+      <terminal options.bind="processor.options" if.bind="processor.type == 'terminal'"></terminal>
+    </div>
+  </div>
+</template>
