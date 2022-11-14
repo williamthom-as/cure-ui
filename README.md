@@ -1,6 +1,12 @@
 # cure-ui
 
-An app using dumber bundler to build. More details in `gulpfile.js`.
+A simple app to provide a visual tool for generating Cure templates.
+
+To find out more about Cure, [click here](https://github.com/williamthom-as/cure)
+
+## Screenshot
+
+![cure_template](https://user-images.githubusercontent.com/8381190/201656101-bedc4871-4bfd-41c0-a26e-3e8d03773eb6.png)
 
 ## Run in dev mode, plus watch
 
