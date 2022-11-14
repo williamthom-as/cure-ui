@@ -8,6 +8,8 @@ export class Name {
 
   constructor(ea) {
     this.ea = ea;
+    this.seed = (Math.random() + 1).toString(36).substring(7);
+    this.transformOptions = this.transformOptions.bind(this);
   };
 
   get typeOptions() {
@@ -26,6 +28,12 @@ export class Name {
   typeChanged(o,v) {
     if (v !== null && o !== v) {
       this.ea.publish(this.seed + "-remove", {o,v})
+    }
+  }
+
+  transformOptions(o, v) {
+    if (v !== null && o !== v) {
+      this.action.options = {};
     }
   }
 

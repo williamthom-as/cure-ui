@@ -1,13 +1,20 @@
 <template>
   <require from="./strategy/name"></require>
-  <!-- <require from="./processors/csv"></require>
-  <require from="./processors/terminal"></require> -->
+  <require from="./strategy/base-options"></require>
+  <require from="./strategy/split"></require>
+  <require from="./strategy/match"></require>
 
   <div style="margin-left: 1rem;">
-    <name name.bind="strategy.name" if.bind="strategy" seed.bind="seed"></name>
+    <name name.bind="strategy.name" seed.bind="seed"></name>
     <div style="margin-left: 1rem;">
-      <!-- <csv options.bind="processor.options" if.bind="processor.type == 'csv'"></csv>
-      <terminal options.bind="processor.options" if.bind="processor.type == 'terminal'"></terminal> -->
+      <base-options options.bind="strategy.options" if.bind="strategy.name == 'full'"></base-options>
+      <base-options options.bind="strategy.options" if.bind="strategy.name == 'append'"></base-options>
+      <base-options options.bind="strategy.options" if.bind="strategy.name == 'starts_with'"></base-options>
+      <base-options options.bind="strategy.options" if.bind="strategy.name == 'ends_with'"></base-options>
+
+      <regex options.bind="strategy.options" if.bind="strategy.name == 'regex'"></regex>
+      <split options.bind="strategy.options" if.bind="strategy.name == 'split'"></split>
+      <match options.bind="strategy.options" if.bind="strategy.name == 'match'"></match>
     </div>
   </div>
 </template>
